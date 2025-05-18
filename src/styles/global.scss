@@ -1,0 +1,166 @@
+@import '@/styles/_colors';
+@import '@/styles/_reset';
+@import '@/styles/_mixins';
+@import '@/styles/_breakpoints';
+@import '@/styles/_variables';
+
+// Section wrapper style
+.section-wrapper {
+  @include display-col;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Типографика */
+// Заголовки
+.heading-xl {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 40px;
+  font-weight: $weight-semibold;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: $white;
+}
+
+.heading-lg {
+  @extend .heading-xl;
+  font-size: 36px;
+}
+
+.heading-md {
+  @extend .heading-xl;
+  font-size: 32px;
+}
+
+// Подзаголовки
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: $weight-medium;
+  color: $gray;
+}
+
+// Текстовые блоки
+.body-text {
+  &--work-sans {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &--inter {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+/* Компоненты форм */
+.booking-card {
+  background: $white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &__header {
+    @extend .heading-md;
+    color: $purple;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.date-picker {
+  @include display-col;
+  gap: 8px;
+
+  label {
+    @extend .body-text--work-sans;
+    font-weight: $weight-semibold;
+  }
+}
+
+/* Кнопки и ссылки */
+.btn-primary {
+  background: $orange;
+  padding: 12px 24px;
+  border-radius: 4px;
+  @extend .body-text--work-sans;
+  font-weight: $weight-bold;
+  color: $white;
+
+  &:hover {
+    background: darken($orange, 10%);
+  }
+}
+
+.link-underline {
+  @extend .body-text--inter;
+  color: $purple;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Чекбоксы и переключатели */
+.checkbox-group {
+  @include display-col;
+  gap: 12px;
+
+  label {
+    @include display-row;
+    align-items: center;
+    gap: 8px;
+    @extend .body-text--work-sans;
+  }
+}
+
+.car-card {
+  border: 1px solid $gray;
+  border-radius: 8px;
+  padding: 16px;
+
+  &__title {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 24px;
+    font-weight: $weight-bold;
+    color: $purple;
+  }
+
+  &__specs {
+    @include display-row;
+    gap: 16px;
+    margin: 12px 0;
+
+    span {
+      @extend .body-text--inter;
+      background: rgba($gray, 0.1);
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+  }
+}
+
+@include respond(tablet) {
+  .heading-xl {
+    font-size: 32px;
+  }
+
+  .car-card {
+    padding: 12px;
+
+    &__title {
+      font-size: 20px;
+    }
+  }
+}
+
+@include respond(phone) {
+  .section-wrapper {
+    padding: 20px 10px;
+  }
+
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
