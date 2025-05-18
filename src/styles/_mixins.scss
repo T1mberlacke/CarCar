@@ -1,0 +1,18 @@
+@mixin display-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin display-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (max-width: 768px) { @content; }
+  }
+  @if $breakpoint == phone {
+    @media (max-width: 480px) { @content; }
+  }
+}
